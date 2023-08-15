@@ -529,8 +529,6 @@ EOF
     sysctl -w net.core.dev_weight=40
     sysctl -w net.core.netdev_tstamp_prequeue=0
     sysctl -w kernel.randomize_va_space=0
-    sysctl -w net.ipv4.udp_rmem_min=8192
-    sysctl -w net.ipv4.udp_wmem_min=8192
     echo "System network settings optimized"
 else
 	clear
