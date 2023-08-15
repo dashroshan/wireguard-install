@@ -521,6 +521,17 @@ EOF
 	echo
 	echo "The client configuration is available in:" ~/"$client.conf"
 	echo "New clients can be added by running this script again."
+
+    # Custom settings
+    ufw allow 80
+    sysctl -w net.core.rmem_max=26214400
+    sysctl -w net.core.rmem_default=26214400
+    sysctl -w net.core.dev_weight=40
+    sysctl -w net.core.netdev_tstamp_prequeue=0
+    sysctl -w kernel.randomize_va_space=0
+    sysctl -w net.ipv4.udp_rmem_min=8192
+    sysctl -w net.ipv4.udp_wmem_min=8192
+    echo "System network settings optimized"
 else
 	clear
 	echo "WireGuard is already installed."
